@@ -24,7 +24,7 @@ export const promiseArr = [promise1, promise2, promise3, promise4];
  */
 
 // Your code goes here...
-export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
+export const handlePromise1 = Promise.all(promiseArr).catch((e) => e);
 
 /**
  * @task
@@ -41,6 +41,11 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  */
 
 // Your code goes here...
+export const handlePromise2 = (promiseArray) => {
+  return Promise.any(promiseArray)
+    .then((value) => value)
+    .catch((reason) => reason);
+};
 
 /**
  * @task
@@ -57,7 +62,9 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  */
 
 // Your code goes here...
-
+export const handlePromise3 = (promiseArray) => {
+  return Promise.allSettled(promiseArray);
+};
 /**
  * @task
  * Update the filter method callback to filter out any promise that will be settled before promise4
@@ -66,7 +73,10 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  * The value of newPromiseArr MUST have more than one promise in the array!
  */
 
-export const newPromiseArr = promiseArr.filter(/* <Your code goes here>*/);
+export const newPromiseArr = promiseArr.filter((promise) => {
+  return Promise.race([promise, promise4]).catch((res) => res);
+});
+
 
 // Do NOT refactor or update handlePromise4 function, it's all set to work
 export const handlePromise4 = (arr) => {
@@ -79,3 +89,5 @@ export const handlePromise4 = (arr) => {
 // Once you're finished run the test with "npm run test-10"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
+
+
