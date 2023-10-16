@@ -19,10 +19,9 @@ export const getPromise = (bool) => {
   // Your code goes here...
   return new Promise((resolve, reject) => {
     if (bool) {
-      resolve('The PROMISE was RESOLVED');
-    }
-    else {
-      reject('The PROMISE was REJECTED');
+      resolve("The PROMISE was RESOLVED");
+    } else {
+      reject("The PROMISE was REJECTED");
     }
   });
 };
@@ -43,7 +42,7 @@ export const handlePromise = (promise) => {
       return resolvedValue;
     })
     .catch(() => {
-      return 'Uh Oh';
+      return "Uh Oh";
     });
 };
 

@@ -15,14 +15,13 @@
  */
 
 // Your code goes here
-export const getPromise = new Promise((resolve, reject) => {
+export const getPromise = new Promise((resolve) => {
   setTimeout(() => {
-    resolve('The PROMISE was RESOLVED');
+    resolve("The PROMISE was RESOLVED");
   }, 1000);
 });
 
-getPromise
-.then((resolvedValue) => {
+getPromise.then((resolvedValue) => {
   console.log(resolvedValue);
   return resolvedValue;
 });

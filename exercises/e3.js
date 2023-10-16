@@ -16,14 +16,14 @@
  */
 export const getPromise = (num) => {
   // Your code goes here...
-  
-    if (Number.isInteger(num)) {
-      return new Promise((resolve, reject) => {
+
+  if (Number.isInteger(num)) {
+    return new Promise((resolve) => {
       resolve(num);
     });
-    } else {
-      return 0;
-    }
+  } else {
+    return 0;
+  }
 };
 
 /**
@@ -39,17 +39,15 @@ export const getPromise = (num) => {
  */
 export const updateSumValue = () => {
   // Your code goes here...
-  let sum = 2; 
-  
-  
-  getPromise(120)
-  .then((data) => {
-    return data; 
+  let sum = 2;
+
+  getPromise(120).then((data) => {
+    sum += data;
   });
 
-  sum = sum + 8
+  sum = sum + 8;
 
-  return sum
+  return sum;
 };
 
 console.log(updateSumValue());

@@ -24,7 +24,9 @@ export const promiseArr = [promise1, promise2, promise3, promise4];
  */
 
 // Your code goes here...
-export const handlePromise1 = Promise.all(promiseArr).catch((e) => e);
+export const handlePromise1 = Promise.all(promiseArr)
+  .then((data) => data)
+  .catch((err) => err);
 
 /**
  * @task
@@ -63,7 +65,9 @@ export const handlePromise2 = (promiseArray) => {
 
 // Your code goes here...
 export const handlePromise3 = (promiseArray) => {
-  return Promise.allSettled(promiseArray);
+  return Promise.allSettled(promiseArray)
+    .then((data) => data)
+    .catch((err) => err);
 };
 /**
  * @task
@@ -73,10 +77,9 @@ export const handlePromise3 = (promiseArray) => {
  * The value of newPromiseArr MUST have more than one promise in the array!
  */
 
-export const newPromiseArr = promiseArr.filter((promise) => {
-  return Promise.race([promise, promise4]).catch((res) => res);
-});
-
+export const newPromiseArr = promiseArr.filter(
+  (promise) => promise === promise4
+);
 
 // Do NOT refactor or update handlePromise4 function, it's all set to work
 export const handlePromise4 = (arr) => {
@@ -89,5 +92,3 @@ export const handlePromise4 = (arr) => {
 // Once you're finished run the test with "npm run test-10"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
-
-
